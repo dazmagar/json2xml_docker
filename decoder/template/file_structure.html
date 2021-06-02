@@ -1,0 +1,11 @@
+<!doctype html>
+<h2>XML data</h2>
+{% for x in links %}
+<tr>
+    <td><a href="{{ url_for('static', filename=x) }}" target="_blank">{{x}}</a></td><br>
+</tr>
+{% endfor %}
+<br>
+<tr>
+    <input type="button" value="Go Back" onclick="history.back(-1)" />
+</tr>

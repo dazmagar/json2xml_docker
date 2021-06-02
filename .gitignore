@@ -1,0 +1,13 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# virtual env
+*/venv/*
+
+# vs code
+*/.vscode/*
+
+# temp folders
+*/encoded/*
+*/static/*

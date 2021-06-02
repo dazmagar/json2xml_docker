@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  encoder:
+    container_name: encoder
+    build:
+      context: encoder/.
+    ports:
+      - '80:5555'
+    expose:
+      - '5555'
+    volumes:
+      - static-content:/app/encoded
+
+
+  decoder:
+    container_name: decoder
+    build:
+      context: decoder/.
+    depends_on:
+      - encoder
+    expose:
+      - '6666'
+    ports:
+      - '81:6666'
+    volumes:
+      - static-content:/app/encoded
+
+volumes:
+    static-content:
