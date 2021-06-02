@@ -19,8 +19,11 @@ def upload_form():
 def decode_files():
     if request.method == 'POST':
 
-        for f in os.listdir(app.config['RESULT_FOLDER']):
-            os.remove(os.path.join(app.config['RESULT_FOLDER'], f))
+        if os.path.exists(app.config['RESULT_FOLDER']):
+            for f in os.listdir(app.config['RESULT_FOLDER']):
+                os.remove(os.path.join(app.config['RESULT_FOLDER'], f))
+        else:
+            os.makedirs(app.config['RESULT_FOLDER'])
 
         encoded_files = [os.path.normpath(file) for file in glob(app.config['ENCODED_FOLDER'] + '/*data')]
 
